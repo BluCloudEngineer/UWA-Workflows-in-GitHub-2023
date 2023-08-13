@@ -6,15 +6,22 @@ This file includes links to the sources used to help create this project.
 
 ### Amazon Web Services
 
-| Name                                               | URL                                                                                    |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Amazon CloudWatch                                  | https://aws.amazon.com/cloudwatch/                                                     |
-| AWS CloudFormation                                 | https://aws.amazon.com/cloudformation/                                                 |
-| AWS CodeBuild                                      | https://aws.amazon.com/codebuild/                                                      |
-| AWS CodePipeline                                   | https://aws.amazon.com/codepipeline/                                                   |
-| AWS Elastic Beanstalk                              | https://aws.amazon.com/elasticbeanstalk/                                               |
-| Getting started using Elastic Beanstalk            | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html             |
-| Deploying a Flask application to Elastic Beanstalk | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html |
+| Name                                               | URL                                                                                                    |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Amazon CloudWatch                                  | https://aws.amazon.com/cloudwatch/                                                                     |
+| AWS CloudFormation                                 | https://aws.amazon.com/cloudformation/                                                                 |
+| AWS CloudFormation - Template anatomy              | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html                   |
+| AWS CloudFormation - Parameters                    | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html       |
+| AWS CloudFormation - Outputs                       | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html          |
+| AWS CloudFormation - CodePipeline - Pipeline       | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html |
+| AWS CloudFormation - CodeBuild - Project           | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html     |
+| AWS CloudFormation - Log Groups                    | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html         |
+| AWS CodeBuild                                      | https://aws.amazon.com/codebuild/                                                                      |
+| AWS CodePipeline                                   | https://aws.amazon.com/codepipeline/                                                                   |
+| AWS Elastic Beanstalk                              | https://aws.amazon.com/elasticbeanstalk/                                                               |
+| buildspec specification reference                  | https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html                             |
+| Getting started using Elastic Beanstalk            | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html                             |
+| Deploying a Flask application to Elastic Beanstalk | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html                 |
 
 ### GitHub
 
