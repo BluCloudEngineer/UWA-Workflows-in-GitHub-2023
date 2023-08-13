@@ -46,4 +46,5 @@ If you are not able to meet any of the checklist items below, you MUST include a
 *   [ ] I have added working unit tests for my new feature.
 *   [ ] All existing unit tests work.
 *   [ ] I have not committed any secrets.
+*   [ ] I have added all related [GitHub issues](https://github.com/BluCloudEngineer/UWA-Workflows-in-GitHub-2023/issues) to this Pull Request.
 *   [ ] I have completed all steps as part of this checklist.
