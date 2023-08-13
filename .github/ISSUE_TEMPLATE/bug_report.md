@@ -16,6 +16,7 @@ Before submitting a new bug, please view the currently reported bugs [here](http
 
 *   [ ] I have checked the GitHub issues tracker and my bug has **NOT** been previously reported.
 *   [ ] This report is for a single bug only, I will create a new report for additional bugs.
+*   [ ] I have not included any sensitive information (passwords, API keys or system configuration information) as part of this report.
 
 ## Describe the Bug
 
