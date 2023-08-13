@@ -6,6 +6,14 @@ This file includes links to the sources used to help create this project.
 
 ### Amazon Web Services
 
+| Name                  | URL                                      |
+| --------------------- | ---------------------------------------- |
+| Amazon CloudWatch     | https://aws.amazon.com/cloudwatch/       |
+| AWS CloudFormation    | https://aws.amazon.com/cloudformation/   |
+| AWS CodeBuild         | https://aws.amazon.com/codebuild/        |
+| AWS CodePipeline      | https://aws.amazon.com/codepipeline/     |
+| AWS Elastic Beanstalk | https://aws.amazon.com/elasticbeanstalk/ |
+
 ### GitHub
 
 | Name                                                 | URL                                                                                                                                                      |
