@@ -16,6 +16,7 @@ This file includes links to the sources used to help create this project.
 | AWS CloudFormation - CodePipeline - Pipeline       | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html |
 | AWS CloudFormation - CodeBuild - Project           | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html     |
 | AWS CloudFormation - Log Groups                    | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html         |
+| AWS CloudFormation - IAM Role                      | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html              |
 | AWS CodeBuild                                      | https://aws.amazon.com/codebuild/                                                                      |
 | AWS CodePipeline                                   | https://aws.amazon.com/codepipeline/                                                                   |
 | AWS Elastic Beanstalk                              | https://aws.amazon.com/elasticbeanstalk/                                                               |
