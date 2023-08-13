@@ -199,4 +199,46 @@ Resources:
         - Key: "Project"
           Value: !Ref ProjectName
 
+  #Pipeline:
+  #  Type: AWS::CodePipeline::Pipeline
+  #  Properties:
+  #    ArtifactStore:
+  #      Location: !Ref PipelineAmazonS3Bucket
+  #      Type: "S3"
+  #    RestartExecutionOnUpdate: true
+  #    RoleArn: !Sub "${PipelineRole.Arn}"
+  #    Stages:
+  #      - Actions:
+  #          - ActionTypeId:
+  #              Category: "Source"
+  #              Owner: "AWS"
+  #              Provider: "CodeStarSourceConnection"
+  #              Version: 1
+  #            Configuration:
+  #              ConnectionArn: !Ref GitHubConnectionArn
+  #              FullRepositoryId: "BluCloudEngineer/UWA-Workflows-in-GitHub-2023" # Update this for your GitHub account and repository
+  #              BranchName: !Ref TargetBranch
+  #              OutputArtifactFormat: "CODE_ZIP"
+  #              DetectChanges: true
+  #            Name: "Source"
+  #            Namespace: "SourceSpace"
+  #            OutputArtifacts:
+  #              - Name: "SourceArtifacts"
+  #            Region: !Sub "${AWS::Region}"
+  #            RunOrder: 1
+  #        Name: "Source"
+  #    Tags:
+  #      - Key: "Project"
+  #        Value: !Ref ProjectName
+
+  #CodeBuildProject:
+  CodeBuildProjectLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 365 # 1 Year
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+
 #Outputs:
