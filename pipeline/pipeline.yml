@@ -217,6 +217,52 @@ Resources:
         - Key: "Project"
           Value: !Ref ProjectName
 
+  ElasticBeanstalkRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "ec2.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Description: "IAM role used by Amazon EC2 instances using Amazon Elastic Beanstalk"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore" # Optional but allows remote access using AWS Systems Manager
+        - "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+  ElasticBeanstalkInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref ElasticBeanstalkRole
+
+  ElasticBeanstalkApplication:
+    Type: AWS::ElasticBeanstalk::Application
+    Properties:
+      Description: "Python Flask calculator web application"
+
+  ElasticBeanstalkEnvironment:
+    Type: AWS::ElasticBeanstalk::Environment
+    Properties:
+      ApplicationName: !Ref ElasticBeanstalkApplication
+      Description: "Python Flask calculator web environment"
+      OptionSettings:
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "IamInstanceProfile"
+          Value: !Ref ElasticBeanstalkInstanceProfile
+      SolutionStackName: "64bit Amazon Linux 2023 v4.0.3 running Python 3.11"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+      Tier:
+        Name: "WebServer"
+        Type: "Standard"
+
   Pipeline:
     Type: AWS::CodePipeline::Pipeline
     Properties:
@@ -303,4 +349,7 @@ Resources:
           Value: !Ref ProjectName
 
 
-#Outputs:
+Outputs:
+  EndpointUrl:
+    Description: "The URL to access the Python Flask web application"
+    Value: !Sub "${ElasticBeanstalkEnvironment.EndpointURL}"
