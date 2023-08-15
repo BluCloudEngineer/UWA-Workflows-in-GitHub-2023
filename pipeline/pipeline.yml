@@ -335,6 +335,22 @@ Resources:
               Region: !Sub "${AWS::Region}"
               RunOrder: 1
           Name: "Test"
+        - Actions:
+            - ActionTypeId:
+                Category: "Deploy"
+                Owner: "AWS"
+                Provider: "ElasticBeanstalk"
+                Version: 1
+              Configuration:
+                ApplicationName: !Ref ElasticBeanstalkApplication
+                EnvironmentName: !Ref ElasticBeanstalkEnvironment
+              InputArtifacts:
+                - Name: "SourceArtifacts"
+              Name: "Deploy"
+              Namespace: "DeploySpace"
+              Region: !Sub "${AWS::Region}"
+              RunOrder: 1
+          Name: "Deploy"
       Tags:
         - Key: "Project"
           Value: !Ref ProjectName
