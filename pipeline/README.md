@@ -4,6 +4,8 @@
 
 This directory is not related to the Python Flask web application, but it includes the files required to create a CI / CD pipeline in AWS. Normally, you should keep software code and Infrastructure as Code (IoC) in separate repositories, but I have included them together for ease of simplicity.
 
+If you want to use the AWS CloudFormation template, you will need to update line `310` in the `pipeline.yml` file to match your GitHub account and repository name.
+
 ## Assumptions
 
 *   You will need an [Amazon Web Services](https://aws.amazon.com/) account.
