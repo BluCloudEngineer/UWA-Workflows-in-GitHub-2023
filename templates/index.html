@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All in One Computer Science Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
+</head>
+
+<body>
+    <h1>All in One Computer Science Calculator</h1>
+    <form method="post" action="/calculate">
+        <label for="operation">Select an operation:</label>
+        <select id="operation" name="operation">
+            <option value="addition">Addition</option>
+            <option value="celsius_to_fahrenheit">Celsius to Fahrenheit</option>
+            <option value="celsius_to_kelvin">Celsius to Kelvin</option>
+            <option value="to_binary">Convert to Binary</option>
+            <option value="to_hexadecimal">Convert to Hexadecimal</option>
+            <option value="custom_exponential">Custom Exponential</option>
+            <option value="custom_log_base">Custom Log Base</option>
+            <option value="custom_sqrt">Custom Square Root</option>
+            <option value="division">Division</option>
+            <option value="exponential">Exponential (e)</option>
+            <option value="factorial">Factorial</option>
+            <option value="fahrenheit_to_celsius">Fahrenheit to Celsius</option>
+            <option value="log10">Log10</option>
+            <option value="log2">Log2</option>
+            <option value="modulus">Modulus</option>
+            <option value="multiplication">Multiplication</option>
+            <option value="natural_log">Natural Log</option>
+            <option value="sqrt">Square Root</option>
+            <option value="subtraction">Subtraction</option>
+        </select>
+        <br>
+        <label for="number1">Enter a number:</label>
+        <input type="text" id="number1" name="number_1" required>
+        <br>
+        <label for="number2">Enter a second number (if needed):</label>
+        <input type="text" id="number2" name="number_2">
+        <br>
+        <input type="submit" value="Calculate">
+    </form>
+    <h2>Result: {{ result }}</h2>
+</body>
+
+</html>
