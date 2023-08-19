@@ -56,7 +56,7 @@ Resources:
                       - "elasticbeanstalk.amazonaws.com"
                       - "ec2.amazonaws.com"
                       - "ecs-tasks.amazonaws.com"
-          PolicyName: "IAM-Access"
+          PolicyName: "IAMAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -69,7 +69,7 @@ Resources:
                   - "codecommit:GetUploadArchiveStatus"
                   - "codecommit:UploadArchive"
                 Resource: "*"
-          PolicyName: "AWS-CodeCommit-Access"
+          PolicyName: "AWSCodeCommitAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -82,14 +82,14 @@ Resources:
                   - "codedeploy:GetDeploymentConfig"
                   - "codedeploy:RegisterApplicationRevision"
                 Resource: "*"
-          PolicyName: "AWS-CodeDeploy-Access"
+          PolicyName: "AWSCodeDeployAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
               - Effect: "Allow"
                 Action: "codestar-connections:UseConnection"
                 Resource: "*"
-          PolicyName: "AWS-CodeStar-Access"
+          PolicyName: "AWSCodeStarAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -107,7 +107,7 @@ Resources:
                   - "sns:*"
                   - "sqs:*"
                 Resource: "*"
-          PolicyName: "Select-Full-Access"
+          PolicyName: "SelectFullAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -116,7 +116,7 @@ Resources:
                   - "lambda:InvokeFunction"
                   - "lambda:ListFunctions"
                 Resource: "*"
-          PolicyName: "AWS-Lambda-Access"
+          PolicyName: "AWSLambdaAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -131,7 +131,7 @@ Resources:
                   - "opsworks:UpdateApp"
                   - "opsworks:UpdateStack"
                 Resource: "*"
-          PolicyName: "AWS-OpsWorks-Access"
+          PolicyName: "AWSOpsWorksAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -142,7 +142,7 @@ Resources:
                   - "codebuild:BatchGetBuildBatches"
                   - "codebuild:StartBuildBatch"
                 Resource: "*"
-          PolicyName: "AWS-CodeBuild-Access"
+          PolicyName: "AWSCodeBuildAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -155,7 +155,7 @@ Resources:
                   - "devicefarm:CreateUpload"
                   - "devicefarm:ScheduleRun"
                 Resource: "*"
-          PolicyName: "AWS-Device-Farm-Access"
+          PolicyName: "AWSDeviceFarmAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -167,14 +167,14 @@ Resources:
                   - "servicecatalog:DeleteProvisioningArtifact"
                   - "servicecatalog:UpdateProduct"
                 Resource: "*"
-          PolicyName: "AWS-Service-Catalog-Access"
+          PolicyName: "AWSServiceCatalogAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
               - Effect: "Allow"
                 Action: "ecr:DescribeImages"
                 Resource: "*"
-          PolicyName: "Amazon-ECR-Access"
+          PolicyName: "AmazonECRAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -184,7 +184,7 @@ Resources:
                   - "states:DescribeStateMachine"
                   - "states:StartExecution"
                 Resource: "*"
-          PolicyName: "AWS-Step-Functions-Access"
+          PolicyName: "AWSStepFunctionsAccess"
         - PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -194,7 +194,7 @@ Resources:
                   - "appconfig:StopDeployment"
                   - "appconfig:GetDeployment"
                 Resource: "*"
-          PolicyName: "AWS-AppConfig-Access"
+          PolicyName: "AWSAppConfigAccess"
       Tags:
         - Key: "Project"
           Value: !Ref ProjectName
