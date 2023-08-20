@@ -3,6 +3,7 @@
         "mhutchie.git-graph",
         "yzhang.markdown-all-in-one",
         "ms-python.python",
-        "ms-python.vscode-pylance"
+        "ms-python.vscode-pylance",
+        "ms-python.pylint"
     ]
 }
