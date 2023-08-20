@@ -1,6 +1,7 @@
 import pytest
 from application import application
 
+
 def test_default_route():
     """
     Make a GET request to "/" and return a status code of 200
