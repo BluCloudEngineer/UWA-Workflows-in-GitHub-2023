@@ -3,7 +3,7 @@ name: "Run PyTest Unit Tests"
 on:
   pull_request:
     branches:
-      - "feature/*"
+      - "feature/**"
 
 jobs:
   RunUnitTests:
