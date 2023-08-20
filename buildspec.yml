@@ -1,0 +1,19 @@
+# This file is unique to AWS CodeBuild projects
+# This YAML code will run the unit tests of the Python Flask web application
+# Please see the following URL for more information on the syntax:
+# https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html
+
+# Do not modify this file.
+
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - python3 -m venv .venv
+      - . .venv/bin/activate
+      - pip3 install -r requirements.txt
+
+  build:
+    commands:
+      - pytest

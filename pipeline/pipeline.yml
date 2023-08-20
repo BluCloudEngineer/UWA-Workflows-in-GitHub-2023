@@ -1,0 +1,398 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "This AWS CloudFormation template will create an AWS CodePipeline pipeline to build, test and deploy the UWA-Workflows-in-GitHub-2023 Python flask web application to AWS."
+
+
+Parameters:
+  ProjectName:
+    AllowedPattern: ".+"
+    ConstraintDescription: "You must supply a value for the project hosted on AWS"
+    Default: "UWA Workflows in GitHub 2023"
+    Description: "The name of the project hosted on AWS"
+    Type: "String"
+
+  TargetBranch:
+    AllowedPattern: ".+"
+    ConstraintDescription: "You must supply a value for the name of the GitHub branch to use for the pipeline"
+    Default: "main"
+    Description: "The name of the GitHub branch to use for the pipeline"
+    Type: "String"
+
+  PipelineAmazonS3Bucket:
+    AllowedPattern: ".+"
+    ConstraintDescription: "You must enter the name of the Amazon S3 Bucket used by AWS CodePipeline"
+    Description: "The name of the Amazon S3 Bucket used by AWS CodePipeline"
+    Type: "String"
+
+  GitHubConnectionArn:
+    AllowedPattern: ".+"
+    ConstraintDescription: "You must enter the ARN of the GitHub to AWS Connector"
+    Description: "The ARN of the GitHub to AWS Connector"
+    Type: "String"
+
+
+Resources:
+  PipelineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "codepipeline.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Description: "Default AWS CodePipeline IAM Role"
+      Policies:
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "iam:PassRole"
+                Resource: "*"
+                Condition:
+                  StringEqualsIfExists:
+                    iam:PassedToService:
+                      - "cloudformation.amazonaws.com"
+                      - "elasticbeanstalk.amazonaws.com"
+                      - "ec2.amazonaws.com"
+                      - "ecs-tasks.amazonaws.com"
+          PolicyName: "IAMAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "codecommit:CancelUploadArchive"
+                  - "codecommit:GetBranch"
+                  - "codecommit:GetCommit"
+                  - "codecommit:GetRepository"
+                  - "codecommit:GetUploadArchiveStatus"
+                  - "codecommit:UploadArchive"
+                Resource: "*"
+          PolicyName: "AWSCodeCommitAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "codedeploy:CreateDeployment"
+                  - "codedeploy:GetApplication"
+                  - "codedeploy:GetApplicationRevision"
+                  - "codedeploy:GetDeployment"
+                  - "codedeploy:GetDeploymentConfig"
+                  - "codedeploy:RegisterApplicationRevision"
+                Resource: "*"
+          PolicyName: "AWSCodeDeployAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "codestar-connections:UseConnection"
+                Resource: "*"
+          PolicyName: "AWSCodeStarAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "autoscaling:*"
+                  - "cloudformation:*"
+                  - "cloudwatch:*"
+                  - "ec2:*"
+                  - "ecs:*"
+                  - "elasticbeanstalk:*"
+                  - "elasticloadbalancing:*"
+                  - "rds:*"
+                  - "s3:*"
+                  - "sns:*"
+                  - "sqs:*"
+                Resource: "*"
+          PolicyName: "SelectFullAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "lambda:InvokeFunction"
+                  - "lambda:ListFunctions"
+                Resource: "*"
+          PolicyName: "AWSLambdaAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "opsworks:CreateDeployment"
+                  - "opsworks:DescribeApps"
+                  - "opsworks:DescribeCommands"
+                  - "opsworks:DescribeDeployments"
+                  - "opsworks:DescribeInstances"
+                  - "opsworks:DescribeStacks"
+                  - "opsworks:UpdateApp"
+                  - "opsworks:UpdateStack"
+                Resource: "*"
+          PolicyName: "AWSOpsWorksAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "codebuild:BatchGetBuilds"
+                  - "codebuild:StartBuild"
+                  - "codebuild:BatchGetBuildBatches"
+                  - "codebuild:StartBuildBatch"
+                Resource: "*"
+          PolicyName: "AWSCodeBuildAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "devicefarm:ListProjects"
+                  - "devicefarm:ListDevicePools"
+                  - "devicefarm:GetRun"
+                  - "devicefarm:GetUpload"
+                  - "devicefarm:CreateUpload"
+                  - "devicefarm:ScheduleRun"
+                Resource: "*"
+          PolicyName: "AWSDeviceFarmAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "servicecatalog:ListProvisioningArtifacts"
+                  - "servicecatalog:CreateProvisioningArtifact"
+                  - "servicecatalog:DescribeProvisioningArtifact"
+                  - "servicecatalog:DeleteProvisioningArtifact"
+                  - "servicecatalog:UpdateProduct"
+                Resource: "*"
+          PolicyName: "AWSServiceCatalogAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "ecr:DescribeImages"
+                Resource: "*"
+          PolicyName: "AmazonECRAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "states:DescribeExecution"
+                  - "states:DescribeStateMachine"
+                  - "states:StartExecution"
+                Resource: "*"
+          PolicyName: "AWSStepFunctionsAccess"
+        - PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "appconfig:StartDeployment"
+                  - "appconfig:StopDeployment"
+                  - "appconfig:GetDeployment"
+                Resource: "*"
+          PolicyName: "AWSAppConfigAccess"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+  CodeBuildRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "codebuild.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Description: "IAM role to run unit tests"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+        - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+  ElasticBeanstalkRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "ec2.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Description: "IAM role used by Amazon EC2 instances using Amazon Elastic Beanstalk"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore" # Optional but allows remote access using AWS Systems Manager
+        - "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+  ElasticBeanstalkInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref ElasticBeanstalkRole
+
+  ElasticBeanstalkApplication:
+    Type: AWS::ElasticBeanstalk::Application
+    Properties:
+      Description: "Python Flask calculator web application"
+
+  ElasticBeanstalkEnvironment:
+    Type: AWS::ElasticBeanstalk::Environment
+    Properties:
+      ApplicationName: !Ref ElasticBeanstalkApplication
+      Description: "Python Flask calculator web environment"
+      OptionSettings:
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "IamInstanceProfile"
+          Value: !Ref ElasticBeanstalkInstanceProfile
+        - Namespace: "aws:autoscaling:asg"
+          OptionName: "MaxSize"
+          Value: "1"
+        - Namespace: "aws:autoscaling:asg"
+          OptionName: "MinSize"
+          Value: "1"
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "InstanceType"
+          Value: "t2.micro"
+        - Namespace: "aws:ec2:instances"
+          OptionName: "InstanceTypes"
+          Value: "t2.micro"
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "RootVolumeIOPS"
+          Value: "3000"
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "RootVolumeSize"
+          Value: "10" # Gigabytes
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "RootVolumeThroughput"
+          Value: "125" # MiB/s
+        - Namespace: "aws:autoscaling:launchconfiguration"
+          OptionName: "RootVolumeType"
+          Value: "gp3"
+        - Namespace: "aws:elasticbeanstalk:command"
+          OptionName: "DeploymentPolicy"
+          Value: "RollingWithAdditionalBatch"
+      SolutionStackName: "64bit Amazon Linux 2023 v4.0.3 running Python 3.11"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+      Tier:
+        Name: "WebServer"
+        Type: "Standard"
+
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      ArtifactStore:
+        Location: !Ref PipelineAmazonS3Bucket
+        Type: "S3"
+      RestartExecutionOnUpdate: true
+      RoleArn: !Sub "${PipelineRole.Arn}"
+      Stages:
+        - Actions:
+            - ActionTypeId:
+                Category: "Source"
+                Owner: "AWS"
+                Provider: "CodeStarSourceConnection"
+                Version: 1
+              Configuration:
+                ConnectionArn: !Ref GitHubConnectionArn
+                FullRepositoryId: "BluCloudEngineer/UWA-Workflows-in-GitHub-2023" # Update this for your GitHub account and repository
+                BranchName: !Ref TargetBranch
+                OutputArtifactFormat: "CODE_ZIP"
+                DetectChanges: true
+              Name: "Source"
+              Namespace: "SourceSpace"
+              OutputArtifacts:
+                - Name: "SourceArtifacts"
+              Region: !Sub "${AWS::Region}"
+              RunOrder: 1
+          Name: "Source"
+        - Actions:
+            - ActionTypeId:
+                Category: "Test"
+                Owner: "AWS"
+                Provider: "CodeBuild"
+                Version: 1
+              Configuration:
+                ProjectName: !Ref CodeBuildProject
+              InputArtifacts:
+                - Name: "SourceArtifacts"
+              Name: "Test"
+              Namespace: "TestSpace"
+              OutputArtifacts:
+                - Name: "TestArtifacts"
+              Region: !Sub "${AWS::Region}"
+              RunOrder: 1
+          Name: "Test"
+        - Actions:
+            - ActionTypeId:
+                Category: "Deploy"
+                Owner: "AWS"
+                Provider: "ElasticBeanstalk"
+                Version: 1
+              Configuration:
+                ApplicationName: !Ref ElasticBeanstalkApplication
+                EnvironmentName: !Ref ElasticBeanstalkEnvironment
+              InputArtifacts:
+                - Name: "SourceArtifacts"
+              Name: "Deploy"
+              Namespace: "DeploySpace"
+              Region: !Sub "${AWS::Region}"
+              RunOrder: 1
+          Name: "Deploy"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+  CodeBuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: "CODEPIPELINE"
+      Description: "Run unit tests for the Python Flask web application"
+      Environment:
+        ComputeType: "BUILD_GENERAL1_SMALL"
+        Image: "aws/codebuild/standard:7.0" # Ubuntu 22.04
+        ImagePullCredentialsType: "CODEBUILD"
+        PrivilegedMode: false
+        Type: "LINUX_CONTAINER"
+      LogsConfig:
+        CloudWatchLogs:
+          GroupName: !Ref CodeBuildProjectLogGroup
+          Status: "ENABLED"
+      QueuedTimeoutInMinutes: 480 # 8 hours
+      ServiceRole: !Sub "${CodeBuildRole.Arn}"
+      Source:
+        BuildSpec: "buildspec.yml"
+        InsecureSsl: false
+        Type: "CODEPIPELINE"
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+      TimeoutInMinutes: 480 # 8 hours
+      Visibility: "PRIVATE"
+
+  CodeBuildProjectLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 365 # 1 Year
+      Tags:
+        - Key: "Project"
+          Value: !Ref ProjectName
+
+
+Outputs:
+  EndpointUrl:
+    Description: "The URL to access the Python Flask web application"
+    Value: !Sub "${ElasticBeanstalkEnvironment.EndpointURL}"
