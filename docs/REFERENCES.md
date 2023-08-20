@@ -36,6 +36,7 @@ This file includes links to the sources used to help create this project.
 | Creating a pull request template for your repository | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository |
 | Example GitHub Templates                             | https://github.com/stevemao/github-issue-templates                                                                                                       |
 | Markdown Syntax                                      | https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax       |
+| Permission denied to github-actions                  | https://stackoverflow.com/questions/72851548/permission-denied-to-github-actionsbot                                                                      |
 | Workflow syntax for GitHub Actions                   | https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions                                                                    |
 
 ### Python Flask Web Development
