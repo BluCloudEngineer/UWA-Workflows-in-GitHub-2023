@@ -1,0 +1,19 @@
+name: "Run PyTest Unit Tests"
+
+on:
+  pull_request:
+    branches:
+      - "feature/*"
+
+jobs:
+  RunUnitTests:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout Code"
+        uses: actions/checkout@v3.5.3
+
+      - name: "Install Python Dependencies"
+        run: "pip3 install -r requirements.txt"
+
+      - name: "Run Unit Tests"
+        run: "python3 -m pytest tests/"
