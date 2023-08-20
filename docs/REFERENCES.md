@@ -50,8 +50,11 @@ This file includes links to the sources used to help create this project.
 | PyTest Framework                      | https://pypi.org/project/pytest/                               |
 | Testing a Flask framework with Pytest | https://circleci.com/blog/testing-flask-framework-with-pytest/ |
 
-### Other
+### Sources of Inspiration
 
-| Name                                     | URL                                         |
-| ---------------------------------------- | ------------------------------------------- |
-| Python Flask and AWS CI / CD Integration | https://www.youtube.com/watch?v=4tDjVFbi31o |
+| Name                                      | URL                                                                |
+| ----------------------------------------- | ------------------------------------------------------------------ |
+| Python Flask and AWS CI / CD Integration  | https://www.youtube.com/watch?v=4tDjVFbi31o                        |
+| Calculator-using-Flask                    | https://github.com/ashutoshpipriye/Calculator-using-Flask          |
+| Calculator-Application-Using-Python-Flask | https://github.com/vr025/Calculator-Application-Using-Python-Flask |
+| ChatGPT                                   | https://chat.openai.com/                                           |
