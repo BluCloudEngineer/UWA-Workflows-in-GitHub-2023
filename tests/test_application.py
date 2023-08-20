@@ -1,4 +1,6 @@
-import pytest
+"""
+Python Flask Calculator Web Application unit tests
+"""
 from application import application
 
 

@@ -1,3 +1,7 @@
+"""
+Python Flask Calculator Web Application
+"""
+
 # Imports
 from flask import Flask, render_template, request
 
@@ -10,11 +14,18 @@ application = Flask(__name__)
 
 @application.route("/")
 def index():
+    """
+    Return the main calculator webpage
+    """
     return render_template("index.html")
 
 
 @application.route("/calculate", methods=["POST"])
 def calculate():
+    """
+    Perform mathematical operations and return the result to
+    the main calculator webpage
+    """
     # Required values
     result = None
     operation = request.form["operation"]
