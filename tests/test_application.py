@@ -22,4 +22,4 @@ def test_pr():
     """
     a = 1
     b = 1
-    assert a == b
+    assert a != b
