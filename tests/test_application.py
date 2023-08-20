@@ -15,3 +15,11 @@ def test_default_route():
 
     # Run assertions
     assert response.status_code == 200
+
+def test_pr():
+    """
+    Manual test
+    """
+    a = 1
+    b = 1
+    assert a == b
