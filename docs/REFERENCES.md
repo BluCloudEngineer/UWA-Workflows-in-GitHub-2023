@@ -28,6 +28,12 @@ This file includes links to the sources used to help create this project.
 | Elastic Beanstalk template snippets                  | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.html                 |
 | Getting started using Elastic Beanstalk              | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html                                    |
 
+### Git Tagging
+
+| Name                               | URL                                                                            | Note                                        |
+| ---------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
+| Create a Git tag in AWS CodeCommit | https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-tag.html | The same command works with any git service |
+
 ### GitHub
 
 | Name                                                 | URL                                                                                                                                                      |
