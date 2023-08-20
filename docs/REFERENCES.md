@@ -10,23 +10,23 @@ This file includes links to the sources used to help create this project.
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | Amazon CloudWatch                                    | https://aws.amazon.com/cloudwatch/                                                                            |
 | AWS CloudFormation                                   | https://aws.amazon.com/cloudformation/                                                                        |
-| AWS CloudFormation - Template anatomy                | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html                          |
-| AWS CloudFormation - Parameters                      | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html              |
-| AWS CloudFormation - Outputs                         | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html                 |
-| AWS CloudFormation - CodePipeline - Pipeline         | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html        |
 | AWS CloudFormation - CodeBuild - Project             | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html            |
-| AWS CloudFormation - Log Groups                      | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html                |
-| AWS CloudFormation - IAM Role                        | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html                     |
-| AWS CloudFormation - IAM Instance Profile            | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html          |
+| AWS CloudFormation - CodePipeline - Pipeline         | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html        |
 | AWS CloudFormation - Elastic Beanstalk - Application | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html |
 | AWS CloudFormation - Elastic Beanstalk - Environment | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html |
+| AWS CloudFormation - IAM Instance Profile            | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html          |
+| AWS CloudFormation - IAM Role                        | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html                     |
+| AWS CloudFormation - Log Groups                      | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html                |
+| AWS CloudFormation - Outputs                         | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html                 |
+| AWS CloudFormation - Parameters                      | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html              |
+| AWS CloudFormation - Template anatomy                | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html                          |
 | AWS CodeBuild                                        | https://aws.amazon.com/codebuild/                                                                             |
 | AWS CodePipeline                                     | https://aws.amazon.com/codepipeline/                                                                          |
 | AWS Elastic Beanstalk                                | https://aws.amazon.com/elasticbeanstalk/                                                                      |
 | buildspec specification reference                    | https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html                                    |
+| Deploying a Flask application to Elastic Beanstalk   | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html                        |
 | Elastic Beanstalk template snippets                  | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.html                 |
 | Getting started using Elastic Beanstalk              | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html                                    |
-| Deploying a Flask application to Elastic Beanstalk   | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html                        |
 
 ### GitHub
 
@@ -54,7 +54,7 @@ This file includes links to the sources used to help create this project.
 
 | Name                                      | URL                                                                |
 | ----------------------------------------- | ------------------------------------------------------------------ |
-| Python Flask and AWS CI / CD Integration  | https://www.youtube.com/watch?v=4tDjVFbi31o                        |
-| Calculator-using-Flask                    | https://github.com/ashutoshpipriye/Calculator-using-Flask          |
 | Calculator-Application-Using-Python-Flask | https://github.com/vr025/Calculator-Application-Using-Python-Flask |
+| Calculator-using-Flask                    | https://github.com/ashutoshpipriye/Calculator-using-Flask          |
 | ChatGPT                                   | https://chat.openai.com/                                           |
+| Python Flask and AWS CI / CD Integration  | https://www.youtube.com/watch?v=4tDjVFbi31o                        |
