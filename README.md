@@ -1,5 +1,18 @@
 # UWA Workflows in GitHub - Hands On Lab
 
+![GitHub Contributors](https://img.shields.io/github/contributors-anon/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Downloads](https://img.shields.io/github/downloads/BluCloudEngineer/UWA-Workflows-in-GitHub-2023/total)
+![GitHub Forks](https://img.shields.io/github/forks/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Issues](https://img.shields.io/github/issues/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub License](https://img.shields.io/github/license/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Open Issues](https://img.shields.io/github/issues-raw/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Open Pull Requests](https://img.shields.io/github/issues-pr-raw/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Python Version](https://img.shields.io/badge/python%20version-3.10.12-blue)
+![GitHub Repository Size](https://img.shields.io/github/repo-size/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Stars](https://img.shields.io/github/stars/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+![GitHub Weekly Commit Activity](https://img.shields.io/github/commit-activity/w/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
+
 ## Overview
 
 This GitHub repository deploys a simple Python Flask web application.
