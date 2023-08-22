@@ -62,7 +62,7 @@ def test_custom_log_base_2():
     })
 
     # Run assertions
-    custom_log = float(math.log(number_1, number_2))
-    matching_string = f"Result: {custom_log}"
+    custom_log_base_answer = float(math.log(number_1, number_2))
+    matching_string = f"Result: {custom_log_base_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
