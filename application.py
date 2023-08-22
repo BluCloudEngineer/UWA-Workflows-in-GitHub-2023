@@ -3,6 +3,7 @@ Python Flask Calculator Web Application
 """
 
 # Imports
+import math
 from flask import Flask, render_template, request
 
 # Initialise the Flask application
@@ -29,11 +30,12 @@ def calculate():
     # Required values
     result = None
     operation = request.form["operation"]
-    # number_1 = float(request.form["number_1"])
-    # number_2 = float(request.form["number_2"])
+    number_1 = float(request.form["number_1"])
 
-    # Perform logic
-    # TODO
+    # Perform mathematical operations
+    if operation == "custom_log_base":
+        base = float(request.form["number_2"])
+        result = math.log(number_1, base)
 
     return render_template("index.html", result=result)
 
