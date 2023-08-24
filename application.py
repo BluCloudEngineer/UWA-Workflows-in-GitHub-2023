@@ -37,6 +37,10 @@ def calculate():
         base = float(request.form["number_2"])
         result = math.log(number_1, base)
 
+    # Factorial calculation
+    if operation == "factorial":
+        result = math.factorial(number_1)
+
     return render_template("index.html", result=result)
 
 
