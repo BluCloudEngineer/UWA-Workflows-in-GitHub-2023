@@ -39,7 +39,7 @@ def calculate():
 
     # Factorial calculation
     if operation == "factorial":
-        result = math.factorial(number_1)
+        result = math.factorial(int(number_1))
 
     return render_template("index.html", result=result)
 
