@@ -36,6 +36,8 @@ def calculate():
     if operation == "custom_log_base":
         base = float(request.form["number_2"])
         result = math.log(number_1, base)
+    elif operation == "log10":
+        result = math.log10(number_1)
 
     return render_template("index.html", result=result)
 
