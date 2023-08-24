@@ -44,6 +44,13 @@ def calculate():
         divider = float(request.form["number_2"])
         result = math.modf(number_1, divider)
 
+    if operation == 'division':
+        try:
+            number_2 = float(request.form["number_2"])
+            result = number_1 / number_2
+        except ZeroDivisionError:
+            result = "You cannot divide by zero!"
+
     return render_template("index.html", result=result)
 
 
