@@ -37,6 +37,10 @@ def calculate():
         base = float(request.form["number_2"])
         result = math.log(number_1, base)
 
+    if operation == 'subtraction':
+        number_2 = float(request.form["number_2"])
+        result = number_1 - number_2
+
     return render_template("index.html", result=result)
 
 
