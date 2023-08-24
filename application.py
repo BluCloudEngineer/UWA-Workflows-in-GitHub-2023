@@ -36,13 +36,17 @@ def calculate():
     if operation == "custom_log_base":
         base = float(request.form["number_2"])
         result = math.log(number_1, base)
-    
+
     if operation == "log10":
         result = math.log10(number_1)
 
     if operation == "modulus":
         divider = float(request.form["number_2"])
         result = math.modf(number_1, divider)
+
+    # Convert to hexadecimal
+    if operation == "to_hexadecimal":
+        result = hex(int(number_1)).replace("0x", "").upper()
 
     return render_template("index.html", result=result)
 
