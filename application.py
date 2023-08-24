@@ -34,7 +34,7 @@ def calculate():
 
     # Perform mathematical operations
     if operation == "celsius_to_kelvin":
-        result = float(request.form["number_2"]) + 273.15
+        result = float(request.form["number_1"]) + 273.15
       #  result = math.log(number_1, base)
 
     return render_template("index.html", result=result)
