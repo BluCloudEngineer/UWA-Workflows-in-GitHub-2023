@@ -35,7 +35,7 @@ def calculate():
     # Perform mathematical operations
     if operation == "sqrt":
         # base = float(request.form["number_2"])
-        result = "±" + math.sqrt(number_1)
+        result = "±" + str(math.sqrt(number_1))
 
     return render_template("index.html", result=result)
 
