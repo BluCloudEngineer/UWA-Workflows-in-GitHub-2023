@@ -44,6 +44,9 @@ def calculate():
         divider = float(request.form["number_2"])
         result = math.modf(number_1, divider)
 
+    if operation == "celsius_to_fahrenheit":
+        result = float(number_1 * 9 / 5 + 32)
+
     return render_template("index.html", result=result)
 
 
