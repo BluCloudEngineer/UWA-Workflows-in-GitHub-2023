@@ -66,3 +66,25 @@ def test_custom_log_base_2():
     matching_string = f"Result: {custom_log_base_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_celsius_to_fahrenheit():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the celsius_to_fahrenheit operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 36
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_fahrenheit",
+        "number_1": number_1
+    })
+
+    # Run assertions
+    matching_string = "Result: 96.8"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
