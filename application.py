@@ -44,6 +44,10 @@ def calculate():
         divider = float(request.form["number_2"])
         result = math.modf(number_1, divider)
 
+    # Factorial calculation
+    if operation == "factorial":
+        result = math.factorial(int(number_1))
+
     return render_template("index.html", result=result)
 
 

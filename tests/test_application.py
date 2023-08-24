@@ -66,3 +66,28 @@ def test_custom_log_base_2():
     matching_string = f"Result: {custom_log_base_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_factorial():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the factorial operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 100)
+    number_2 = random.randint(1, 100)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "factorial",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    factorial_answer = math.factorial(int(number_1))
+    matching_string = f"Result: {factorial_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
