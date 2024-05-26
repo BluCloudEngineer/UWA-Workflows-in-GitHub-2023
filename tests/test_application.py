@@ -296,8 +296,8 @@ def test_log10_2():
     values
     """
     # Test variables
-    number_1 = random.randint(1, 100)
-    number_2 = random.randint(1, 100)
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
 
     # Make HTTP response
     response = application.test_client().post("/calculate", data={
@@ -345,8 +345,8 @@ def test_modulus_2():
     values
     """
     # Test variables
-    number_1 = random.randint(1, 100)
-    number_2 = random.randint(1, 100)
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
 
     # Make HTTP response
     response = application.test_client().post("/calculate", data={
