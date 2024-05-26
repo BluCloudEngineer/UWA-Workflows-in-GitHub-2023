@@ -262,3 +262,52 @@ def test_multiplication_2():
     matching_string = f"Result: {multiplication_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_celsius_to_kelvin_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the Celsius to Kelvin operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 100
+    number_2 = 5
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_kelvin",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 373.15"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_celsius_to_kelvin_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the Celsius to Kelvin operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_kelvin",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    kelvin_answer = number_1 + 273.15
+    matching_string = f"Result: {kelvin_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
