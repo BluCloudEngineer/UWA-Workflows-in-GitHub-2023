@@ -18,6 +18,7 @@ def test_default_route():
     # Run assertions
     assert response.status_code == 200
 
+
 def test_custom_log_base_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -31,7 +32,7 @@ def test_custom_log_base_1():
     number_2 = 4
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "custom_log_base",
         "number_1": number_1,
         "number_2": number_2
@@ -41,6 +42,7 @@ def test_custom_log_base_1():
     matching_string = "Result: 4.0"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_custom_log_base_2():
     """
@@ -55,7 +57,7 @@ def test_custom_log_base_2():
     number_2 = random.randint(1, 1000)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "custom_log_base",
         "number_1": number_1,
         "number_2": number_2
@@ -64,5 +66,248 @@ def test_custom_log_base_2():
     # Run assertions
     custom_log_base_answer = float(math.log(number_1, number_2))
     matching_string = f"Result: {custom_log_base_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_celsius_to_fahrenheit():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the celsius_to_fahrenheit operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 36
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_fahrenheit",
+        "number_1": number_1
+    })
+
+    # Run assertions
+    matching_string = "Result: 96.8"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_factorial():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the factorial operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 100)
+    number_2 = random.randint(1, 100)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "factorial",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    factorial_answer = math.factorial(int(number_1))
+    matching_string = f"Result: {factorial_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_subtraction_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the subtraction operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 57
+    number_2 = 8
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "subtraction",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 49.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_subtraction_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the subtraction operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "subtraction",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    subtraction_answer = number_1 - number_2
+    matching_string = f"Result: {subtraction_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_square_root_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the square root operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 16
+    number_2 = None
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "sqrt",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: ± 4.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_square_root_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the subtraction operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "sqrt",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    square_root_answer = math.pow(number_1, 0.5)
+    matching_string = f"Result: ± {square_root_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_multiplication_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the multiplication operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 5
+    number_2 = 3
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "multiplication",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 15.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_multiplication_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the multiplication operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "multiplication",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    multiplication_answer = number_1 * number_2
+    matching_string = f"Result: {multiplication_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_celsius_to_kelvin_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the Celsius to Kelvin operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 100
+    number_2 = 5
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_kelvin",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 373.15"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_celsius_to_kelvin_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the Celsius to Kelvin operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "celsius_to_kelvin",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    kelvin_answer = number_1 + 273.15
+    matching_string = f"Result: {kelvin_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data

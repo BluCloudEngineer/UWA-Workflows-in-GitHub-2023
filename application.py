@@ -48,6 +48,27 @@ def calculate():
     if operation == "to_hexadecimal":
         result = hex(int(number_1)).replace("0x", "").upper()
 
+    # Factorial calculation
+    if operation == "factorial":
+        result = math.factorial(int(number_1))
+
+    if operation == "celsius_to_fahrenheit":
+        result = float(number_1 * 9 / 5 + 32)
+
+    if operation == 'subtraction':
+        number_2 = float(request.form["number_2"])
+        result = number_1 - number_2
+
+    if operation == "sqrt":
+        result = f"± {math.sqrt(number_1)}"
+
+    if operation == "multiplication":
+        number_2 = float(request.form["number_2"])
+        result = number_1 * number_2
+
+    if operation == "celsius_to_kelvin":
+        result = float(number_1) + 273.15
+
     return render_template("index.html", result=result)
 
 
