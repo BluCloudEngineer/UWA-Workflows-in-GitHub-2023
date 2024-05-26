@@ -38,7 +38,7 @@ def test_celsius_to_fahrenheit_1():
     })
 
     # Run assertions
-    matching_string = "Result: 96.8"
+    matching_string = "Result: 96.8 °F"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
