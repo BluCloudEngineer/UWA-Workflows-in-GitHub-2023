@@ -263,7 +263,55 @@ def test_factorial_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
-#   log10
+def test_log10_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the log10 operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 1000000
+    number_2 = 1000
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "log10",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 6"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_log10_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the log10 operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 100)
+    number_2 = random.randint(1, 100)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "log10",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    log10_answer = math.log10(number_1)
+    matching_string = f"Result: {log10_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
 #   modulus
 
 def test_multiplication_1():
