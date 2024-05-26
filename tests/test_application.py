@@ -213,3 +213,52 @@ def test_square_root_2():
     matching_string = f"Result: ± {square_root_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_multiplication_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the multiplication operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 5
+    number_2 = 3
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "multiplication",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 15.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_multiplication_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the multiplication operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "multiplication",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    multiplication_answer = number_1 * number_2
+    matching_string = f"Result: {multiplication_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
