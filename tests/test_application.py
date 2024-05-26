@@ -69,6 +69,7 @@ def test_custom_log_base_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_celsius_to_fahrenheit():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -81,7 +82,7 @@ def test_celsius_to_fahrenheit():
     number_1 = 36
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "celsius_to_fahrenheit",
         "number_1": number_1
     })
@@ -90,6 +91,7 @@ def test_celsius_to_fahrenheit():
     matching_string = "Result: 96.8"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_factorial():
     """
@@ -104,7 +106,7 @@ def test_factorial():
     number_2 = random.randint(1, 100)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "factorial",
         "number_1": number_1,
         "number_2": number_2
@@ -115,6 +117,7 @@ def test_factorial():
     matching_string = f"Result: {factorial_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_subtraction_1():
     """
@@ -129,7 +132,7 @@ def test_subtraction_1():
     number_2 = 8
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "subtraction",
         "number_1": number_1,
         "number_2": number_2
@@ -139,6 +142,7 @@ def test_subtraction_1():
     matching_string = "Result: 49.0"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_subtraction_2():
     """
@@ -153,7 +157,7 @@ def test_subtraction_2():
     number_2 = random.randint(1, 1000)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "subtraction",
         "number_1": number_1,
         "number_2": number_2
@@ -164,6 +168,7 @@ def test_subtraction_2():
     matching_string = f"Result: {subtraction_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_square_root_1():
     """
@@ -178,7 +183,7 @@ def test_square_root_1():
     number_2 = None
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "sqrt",
         "number_1": number_1,
         "number_2": number_2
@@ -188,6 +193,7 @@ def test_square_root_1():
     matching_string = "Result: ± 4.0"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_square_root_2():
     """
@@ -202,7 +208,7 @@ def test_square_root_2():
     number_2 = random.randint(1, 1000)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "sqrt",
         "number_1": number_1,
         "number_2": number_2
@@ -213,6 +219,7 @@ def test_square_root_2():
     matching_string = f"Result: ± {square_root_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_multiplication_1():
     """
@@ -227,7 +234,7 @@ def test_multiplication_1():
     number_2 = 3
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "multiplication",
         "number_1": number_1,
         "number_2": number_2
@@ -237,6 +244,7 @@ def test_multiplication_1():
     matching_string = "Result: 15.0"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_multiplication_2():
     """
@@ -251,7 +259,7 @@ def test_multiplication_2():
     number_2 = random.randint(1, 1000)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "multiplication",
         "number_1": number_1,
         "number_2": number_2
@@ -262,6 +270,7 @@ def test_multiplication_2():
     matching_string = f"Result: {multiplication_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_celsius_to_kelvin_1():
     """
@@ -276,7 +285,7 @@ def test_celsius_to_kelvin_1():
     number_2 = 5
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "celsius_to_kelvin",
         "number_1": number_1,
         "number_2": number_2
@@ -286,6 +295,7 @@ def test_celsius_to_kelvin_1():
     matching_string = "Result: 373.15"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_celsius_to_kelvin_2():
     """
@@ -300,7 +310,7 @@ def test_celsius_to_kelvin_2():
     number_2 = random.randint(1, 1000)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "celsius_to_kelvin",
         "number_1": number_1,
         "number_2": number_2
@@ -311,6 +321,7 @@ def test_celsius_to_kelvin_2():
     matching_string = f"Result: {kelvin_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_number_to_hexadecimal_1():
     """
@@ -325,7 +336,7 @@ def test_number_to_hexadecimal_1():
     number_2 = 128
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "to_hexadecimal",
         "number_1": number_1,
         "number_2": number_2
@@ -335,6 +346,7 @@ def test_number_to_hexadecimal_1():
     matching_string = "Result: FF"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_number_to_hexadecimal_2():
     """
@@ -349,7 +361,7 @@ def test_number_to_hexadecimal_2():
     number_2 = random.randint(1, 255)
 
     # Make HTTP response
-    response = application.test_client().post("/calculate", data = {
+    response = application.test_client().post("/calculate", data={
         "operation": "to_hexadecimal",
         "number_1": number_1,
         "number_2": number_2
