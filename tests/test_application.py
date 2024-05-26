@@ -113,3 +113,52 @@ def test_factorial():
     matching_string = f"Result: {factorial_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_subtraction_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the subtraction operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 57
+    number_2 = 8
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "subtraction",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 49.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_subtraction_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the subtraction operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "subtraction",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    subtraction_answer = number_1 - number_2
+    matching_string = f"Result: {subtraction_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
