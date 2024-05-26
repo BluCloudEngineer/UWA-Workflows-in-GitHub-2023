@@ -36,6 +36,17 @@ def calculate():
     if operation == "custom_log_base":
         base = float(request.form["number_2"])
         result = math.log(number_1, base)
+    
+    if operation == "log10":
+        result = math.log10(number_1)
+
+    if operation == "modulus":
+        divider = float(request.form["number_2"])
+        result = math.modf(number_1, divider)
+
+    # Factorial calculation
+    if operation == "factorial":
+        result = math.factorial(int(number_1))
 
     if operation == "celsius_to_fahrenheit":
         result = float(number_1 * 9 / 5 + 32)
