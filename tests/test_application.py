@@ -312,7 +312,54 @@ def test_log10_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
-#   modulus
+def test_modulus_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the modulus operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 5
+    number_2 = 2
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "modulus",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 1"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_modulus_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the modulus operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 100)
+    number_2 = random.randint(1, 100)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "modulus",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    modulus_answer = number_1 % number_2
+    matching_string = f"Result: {modulus_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
 
 def test_multiplication_1():
     """
