@@ -55,6 +55,9 @@ def calculate():
         number_2 = float(request.form["number_2"])
         result = number_1 - number_2
 
+    if operation == "sqrt":
+        result = f"± {math.sqrt(number_1)}"
+
     return render_template("index.html", result=result)
 
 
