@@ -55,7 +55,7 @@ def calculate():
 
     if operation == "modulus":
         divider = float(request.form["number_2"])
-        result = math.modf(number_1, divider)
+        result = number_1 % divider
 
     if operation == "multiplication":
         number_2 = float(request.form["number_2"])
