@@ -311,3 +311,52 @@ def test_celsius_to_kelvin_2():
     matching_string = f"Result: {kelvin_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_number_to_hexadecimal_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the number to hexadecimal conversion operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 255
+    number_2 = 128
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "to_hexadecimal",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: FF"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_number_to_hexadecimal_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the number to hexadecimal conversion operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 255)
+    number_2 = random.randint(1, 255)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data = {
+        "operation": "to_hexadecimal",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    hexadecimal_answer = hex(number_1).replace("0x", "").upper()
+    matching_string = f"Result: {hexadecimal_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
