@@ -45,6 +45,8 @@ This GitHub repository deploys a simple Python Flask web application.
 
 ## Usage
 
+### Local
+
 After creating and configuring your virtual environment, run the following command to start the Python Flask web application:
 
 ```bash
@@ -55,6 +57,26 @@ Next, open a web browser and navigate to:
 
 ```text
 http://127.0.0.1:5000
+```
+
+### Docker
+
+To build the Docker container, run the following command:
+
+```bash
+docker build -t uwaworkflows2023 .
+```
+
+To run the Docker container, run the following command:
+
+```bash
+docker run -it -p 80:5000 uwaworkflows2023:latest
+```
+
+Next, open a web browser and navigate to:
+
+```text
+http://127.0.0.1
 ```
 
 ## Unit Tests
