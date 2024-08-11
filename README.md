@@ -68,3 +68,11 @@ pytest --junitxml=tests/report.xml
 ```
 
 Alternatively, you can run the unit tests in the `Testing` extension of Visual Studio Code.
+
+## Deactivate Python Virtual Environment
+
+Once you have finished working with the Python Virtual Environment, run the following command to deactivate it:
+
+```bash
+deactivate
+```
