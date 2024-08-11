@@ -12,8 +12,8 @@ assignees: ""
 
 Before submitting a new feature, please view the currently requested features [here](https://github.com/BluCloudEngineer/UWA-Workflows-in-GitHub-2023/issues). If your feature has not been submitted, please complete this report:
 
-*   [ ] I have checked the GitHub issues tracker and my feature has **NOT** been previously submitted.
-*   [ ] This report is for a single feature only, I will create a new report for additional features.
+* [ ] I have checked the GitHub issues tracker and my feature has **NOT** been previously submitted.
+* [ ] This report is for a single feature only, I will create a new report for additional features.
 
 ## Describe the New Feature
 

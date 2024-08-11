@@ -14,9 +14,9 @@ Before submitting a new bug, please view the currently reported bugs [here](http
 
 **NOTE: If you are submitting multiple bugs, please submit one report per bug**
 
-*   [ ] I have checked the GitHub issues tracker and my bug has **NOT** been previously reported.
-*   [ ] This report is for a single bug only, I will create a new report for additional bugs.
-*   [ ] I have not included any sensitive information (passwords, API keys or system configuration information) as part of this report.
+* [ ] I have checked the GitHub issues tracker and my bug has **NOT** been previously reported.
+* [ ] This report is for a single bug only, I will create a new report for additional bugs.
+* [ ] I have not included any sensitive information (passwords, API keys or system configuration information) as part of this report.
 
 ## Describe the Bug
 
@@ -26,19 +26,19 @@ Before submitting a new bug, please view the currently reported bugs [here](http
 
 <!-- Please include as much information as you can of the device you were using when you encountered the bug -->
 
-*   Operating System: Windows 10 OS build 19044.1826
-*   Browser: Google Chrome Version 104.0.5112.79 (Official Build) (64-bit)
-*   Latest version of the code: v1.0.24
-*   Git commit ID of the code: 6b587666e9aa86fd39fcaf9f63273246822324fe
+* Operating System: Windows 10 OS build 19044.1826
+* Browser: Google Chrome Version 104.0.5112.79 (Official Build) (64-bit)
+* Latest version of the code: v1.0.24
+* Git commit ID of the code: 6b587666e9aa86fd39fcaf9f63273246822324fe
 
 ## Steps to Reproduce
 
 <!-- Please provide the EXACT steps you performed to produce this bug -->
 
-1.  Go to '...'
-2.  Click on '....'
-3.  Scroll down to '....'
-4.  See error
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
 ## Expected Behaviour
 
@@ -60,7 +60,7 @@ Before submitting a new bug, please view the currently reported bugs [here](http
 
 <!-- If this bug is related to other bug(s), please add them here
 
-*   # 1
-*   # 3
+* # 1
+* # 3
 
 -->
