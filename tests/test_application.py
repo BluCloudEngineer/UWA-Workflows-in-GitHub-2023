@@ -18,6 +18,7 @@ def test_default_route():
     # Run assertions
     assert response.status_code == 200
 
+
 def test_get_calculate_redirect():
     """
     Make a GET request to "/calculate" and return a
@@ -29,6 +30,7 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
+
 
 def test_celsius_to_fahrenheit_1():
     """
