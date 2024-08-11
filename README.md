@@ -19,9 +19,9 @@ This GitHub repository deploys a simple Python Flask web application.
 
 ## Assumptions
 
-*   You have Python 3.x installed on your local machine.
-*   You have PIP3 Python package manager installed on your local machine.
-*   You have the Virtual Python Environment builder installed on your local machine.
+* You have Python 3.x installed on your local machine.
+* You have PIP3 Python package manager installed on your local machine.
+* You have the Virtual Python Environment builder installed on your local machine.
 
 ## Setting Up Your Development Environment
 

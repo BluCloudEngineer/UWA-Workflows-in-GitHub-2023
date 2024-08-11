@@ -8,13 +8,13 @@ If you want to use the AWS CloudFormation template, you will need to update line
 
 ## Assumptions
 
-*   You will need an [Amazon Web Services](https://aws.amazon.com/) account.
-*   All AWS resources used in this repository fall under the [AWS Free Tier](https://aws.amazon.com/free/), however, if you deploy this to your AWS account, you are responsible for **any / all** costs incurred.
-*   You have already created a default Amazon S3 Bucket used by AWS CodePipeline.
-*   You have already created the default IAM service role for AWS Elastic Beanstalk.
-*   The Amazon EC2 web server(s) used by AWS Elastic Beanstalk will be deployed in the default VPC of your AWS account. If you are deploying this for a production environment, it is recommended to create a new VPC.
-*   All AWS resources are deployed in the Asia Pacific (Sydney) ap-southeast-2 Region.
-*   You have already created the connector between GitHub and AWS. More information can be found [here](https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-github.html).
+* You will need an [Amazon Web Services](https://aws.amazon.com/) account.
+* All AWS resources used in this repository fall under the [AWS Free Tier](https://aws.amazon.com/free/), however, if you deploy this to your AWS account, you are responsible for **any / all** costs incurred.
+* You have already created a default Amazon S3 Bucket used by AWS CodePipeline.
+* You have already created the default IAM service role for AWS Elastic Beanstalk.
+* The Amazon EC2 web server(s) used by AWS Elastic Beanstalk will be deployed in the default VPC of your AWS account. If you are deploying this for a production environment, it is recommended to create a new VPC.
+* All AWS resources are deployed in the Asia Pacific (Sydney) ap-southeast-2 Region.
+* You have already created the connector between GitHub and AWS. More information can be found [here](https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-github.html).
 
 ## Deploying the Pipeline
 
