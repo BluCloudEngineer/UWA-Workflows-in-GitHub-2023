@@ -79,6 +79,8 @@ Next, open a web browser and navigate to:
 http://127.0.0.1
 ```
 
+Alternatively, you can pull a compiled Docker container [here](https://hub.docker.com/r/blucloudengineer/uwaworkflows2023).
+
 ## Unit Tests
 
 After creating and configuring your virtual environment, run the following command to run the unit tests:
