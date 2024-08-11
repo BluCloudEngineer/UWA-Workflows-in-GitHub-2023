@@ -31,6 +31,7 @@ def test_get_calculate_redirect():
     assert response.status_code == 200
     assert response.status_code != 405
 
+
 def test_addition_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -54,6 +55,7 @@ def test_addition_1():
     matching_string = "Result: 107.0"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_addition_2():
     """
