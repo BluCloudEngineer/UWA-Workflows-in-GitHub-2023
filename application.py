@@ -20,6 +20,13 @@ def index():
     """
     return render_template("index.html")
 
+@application.route("/calculate", methods=["GET"])
+def calculate_redirect():
+    """
+    If the user makes a GET request to the /calculate path,
+    return the main calculator webpage
+    """
+    return render_template("index.html")
 
 @application.route("/calculate", methods=["POST"])
 def calculate():
