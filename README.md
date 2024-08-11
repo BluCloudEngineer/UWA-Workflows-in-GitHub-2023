@@ -63,6 +63,8 @@ After creating and configuring your virtual environment, run the following comma
 
 ```bash
 pytest
+# OR
+pytest --junitxml=tests/report.xml
 ```
 
 Alternatively, you can run the unit tests in the `Testing` extension of Visual Studio Code.
