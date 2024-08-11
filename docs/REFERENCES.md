@@ -27,6 +27,7 @@ This file includes links to the sources used to help create this project.
 | Deploying a Flask application to Elastic Beanstalk   | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html                        |
 | Elastic Beanstalk template snippets                  | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.html                 |
 | Getting started using Elastic Beanstalk              | https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html                                    |
+| Set up test reporting with pytest                    | https://docs.aws.amazon.com/codebuild/latest/userguide/test-report-pytest.html                                |
 
 ### Git Tagging
 
