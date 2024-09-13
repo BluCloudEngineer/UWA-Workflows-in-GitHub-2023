@@ -541,6 +541,7 @@ def test_subtraction_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_addition():
     "Test addition"
     # Test variables
