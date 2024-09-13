@@ -42,6 +42,10 @@ def calculate():
     number_1 = float(request.form["number_1"])
 
     # Perform mathematical operations
+    if operation == "addition":
+        number_2 = float(request.form["number_2"])
+        result = number_1 + number_2
+
     if operation == "celsius_to_fahrenheit":
         fahrenheit = float(number_1 * 9 / 5 + 32)
         result = f"{fahrenheit} °F"

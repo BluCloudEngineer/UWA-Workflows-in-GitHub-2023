@@ -540,3 +540,21 @@ def test_subtraction_2():
     matching_string = f"Result: {subtraction_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_addition():
+    "Test addition"
+    # Test variables
+    number_1 = 10
+    number_2 = 8
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "addition",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 18.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
