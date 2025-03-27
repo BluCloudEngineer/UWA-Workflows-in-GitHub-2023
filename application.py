@@ -72,6 +72,9 @@ def calculate():
 
     if operation == "sqrt":
         result = f"± {math.sqrt(number_1)}"
+        
+    if operation == " natural_log":
+        result = math.log(number_1)  
 
     if operation == "subtraction":
         number_2 = float(request.form["number_2"])
