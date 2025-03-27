@@ -45,6 +45,10 @@ def calculate():
     if operation == "celsius_to_fahrenheit":
         fahrenheit = float(number_1 * 9 / 5 + 32)
         result = f"{fahrenheit} °F"
+    
+    if operation == "fahrenheit_to_celsius":
+        celsius = float((number_1 - 32) * 5 / 9)
+        result = f"{celsius} °C"
 
     if operation == "celsius_to_kelvin":
         result = float(number_1) + 273.15
