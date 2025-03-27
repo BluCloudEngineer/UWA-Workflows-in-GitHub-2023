@@ -62,6 +62,12 @@ def calculate():
     if operation == "log10":
         result = math.log10(number_1)
 
+    if operation == "log2":  # Base-2 logarithm
+        result = math.log2(number_1)
+
+    if operation == "ln":  # Natural logarithm
+        result = math.log(number_1)
+
     if operation == "modulus":
         divider = float(request.form["number_2"])
         result = number_1 % divider
