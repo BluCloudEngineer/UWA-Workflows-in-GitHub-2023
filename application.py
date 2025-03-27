@@ -77,6 +77,12 @@ def calculate():
         number_2 = float(request.form["number_2"])
         result = number_1 - number_2
 
+    if operation == "natural_log":
+        if number_1 > 0:  # Natural log is only defined for positive numbers
+            result = math.log(number_1)
+    else:
+        result = "Error: Natural log is undefined for non-positive numbers."
+
     if operation == "addition":
         number_1 = float(request.form["number_1"])
         number_2 = float(request.form["number_2"])
