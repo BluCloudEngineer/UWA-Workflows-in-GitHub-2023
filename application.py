@@ -83,6 +83,15 @@ def calculate():
     else:
         result = "Error: Natural log is undefined for non-positive numbers."
 
+    if operation == "addition":
+        number_1 = float(request.form["number_1"])
+        number_2 = float(request.form["number_2"])
+        print(number_1, number_2)
+        result = number_1 + number_2
+
+    if operation == "to_binary":
+        result = format(number_1, '08b')
+
     return render_template("index.html", result=result)
 
 
