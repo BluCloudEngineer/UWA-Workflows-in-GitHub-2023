@@ -45,7 +45,11 @@ def calculate():
     if operation == "celsius_to_fahrenheit":
         fahrenheit = float(number_1 * 9 / 5 + 32)
         result = f"{fahrenheit} °F"
-
+        
+    if operation == "division":
+        number_2 = float(request.form["number_2"])
+        result = number_1 / number_2
+        
     if operation == "celsius_to_kelvin":
         result = float(number_1) + 273.15
 
