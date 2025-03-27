@@ -540,3 +540,52 @@ def test_subtraction_2():
     matching_string = f"Result: {subtraction_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_fahrenheit_to_celsius_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the fahrenheit_to_celsius operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 96.8
+    number_2 = 32
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "fahrenheit_to_celsius",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 36.0 °C"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_fahrenheit_to_celsius_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the fahrenheit_to_celsius operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "fahrenheit_to_celsius",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    celsius_answer = float((number_1 - 32) * 5 / 9)
+    matching_string = f"Result: {celsius_answer} °C"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
