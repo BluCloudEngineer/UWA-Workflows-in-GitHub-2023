@@ -541,6 +541,7 @@ def test_subtraction_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_fahrenheit_to_celsius_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -564,6 +565,7 @@ def test_fahrenheit_to_celsius_1():
     matching_string = "Result: 36.0 °C"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_fahrenheit_to_celsius_2():
     """
