@@ -90,6 +90,13 @@ def calculate():
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
 
+    if operation == "division":
+        number_2 = float(request.form["number_2"])
+        if number_2 == 0:
+            result = "undefined"
+        else:
+            result = number_1 / number_2
+
     return render_template("index.html", result=result)
 
 
