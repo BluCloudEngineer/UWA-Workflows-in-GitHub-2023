@@ -20,7 +20,7 @@ jobs:
 
   BuildPushDockerContainer:
     runs-on: "ubuntu-latest"
-    needs: Unit-Tests
+    needs: RunUnitTests
     steps:
       - name: "Docker Setup QEMU"
         uses: docker/setup-qemu-action@v3.0.0
