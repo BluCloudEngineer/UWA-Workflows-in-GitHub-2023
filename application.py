@@ -88,7 +88,6 @@ def calculate():
     if operation == "addition":
         number_1 = float(request.form["number_1"])
         number_2 = float(request.form["number_2"])
-        print(number_1, number_2)
         result = number_1 + number_2
 
     return render_template("index.html", result=result)
