@@ -687,3 +687,76 @@ def test_addition_2():
     matching_string = f"Result: {addition_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_division_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the division operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 5
+    number_2 = 2
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "division",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 2.5"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_division_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the division operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "division",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    division_answer = number_1 / number_2
+    matching_string = f"Result: {division_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_division_3():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the division operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 10
+    number_2 = 0
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "division",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: undefined"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
