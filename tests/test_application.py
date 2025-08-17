@@ -32,6 +32,7 @@ def test_addition_1():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_addition_2():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -56,6 +57,7 @@ def test_addition_2():
     matching_string = f"Result: {addition_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_celsius_to_fahrenheit_1():
     """
@@ -107,6 +109,7 @@ def test_celsius_to_fahrenheit_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_celsius_to_kelvin_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -156,6 +159,7 @@ def test_celsius_to_kelvin_2():
     matching_string = f"Result: {kelvin_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_custom_log_base_1():
     """
@@ -207,6 +211,7 @@ def test_custom_log_base_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_default_route():
     """
     Make a GET request to "/" and return a status code of 200
@@ -216,6 +221,7 @@ def test_default_route():
 
     # Run assertions
     assert response.status_code == 200
+
 
 def test_division_1():
     """
@@ -240,6 +246,7 @@ def test_division_1():
     matching_string = "Result: 2.5"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_division_2():
     """
@@ -266,6 +273,7 @@ def test_division_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_division_3():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -289,6 +297,7 @@ def test_division_3():
     matching_string = "Result: undefined"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_factorial_1():
     """
@@ -340,6 +349,7 @@ def test_factorial_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_fahrenheit_to_celsius_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -363,6 +373,7 @@ def test_fahrenheit_to_celsius_1():
     matching_string = "Result: 36.0 °C"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_fahrenheit_to_celsius_2():
     """
@@ -389,6 +400,7 @@ def test_fahrenheit_to_celsius_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_get_calculate_redirect():
     """
     Make a GET request to "/calculate" and return a
@@ -400,6 +412,7 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
+
 
 def test_log10_1():
     """
@@ -451,6 +464,7 @@ def test_log10_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_modulus_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -500,6 +514,7 @@ def test_modulus_2():
     matching_string = f"Result: {modulus_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_multiplication_1():
     """
@@ -551,6 +566,7 @@ def test_multiplication_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_natural_log_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -574,6 +590,7 @@ def test_natural_log_1():
     matching_string = "Result: 4.605170185988092"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_natural_log_2():
     """
@@ -599,6 +616,7 @@ def test_natural_log_2():
     matching_string = f"Result: {natural_log_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_number_to_hexadecimal_1():
     """
@@ -650,6 +668,7 @@ def test_number_to_hexadecimal_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_square_root_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -699,6 +718,7 @@ def test_square_root_2():
     matching_string = f"Result: ± {square_root_answer}"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
 
 def test_subtraction_1():
     """
