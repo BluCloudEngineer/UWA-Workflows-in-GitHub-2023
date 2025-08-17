@@ -589,3 +589,52 @@ def test_fahrenheit_to_celsius_2():
     matching_string = f"Result: {celsius_answer} °C"
     assert response.status_code == 200
     assert matching_string.encode() in response.data
+
+def test_natural_log_1():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the natural_log operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 100
+    number_2 = 50
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "natural_log",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    matching_string = "Result: 4.605170185988092"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_natural_log_2():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the natural_log operation
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+    number_2 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "natural_log",
+        "number_1": number_1,
+        "number_2": number_2
+    })
+
+    # Run assertions
+    natural_log_answer = math.log(number_1)
+    matching_string = f"Result: {natural_log_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
