@@ -43,7 +43,7 @@ def calculate():
 
     # Perform mathematical operations
     if operation == "celsius_to_fahrenheit":
-        fahrenheit = float(number_1 * 9 / 5 + 32)
+        fahrenheit = float((number_1 * 9 / 5) + 32)
         result = f"{fahrenheit} °F"
     
     if operation == "fahrenheit_to_celsius":
@@ -86,7 +86,6 @@ def calculate():
             result = math.log(number_1)
 
     if operation == "addition":
-        number_1 = float(request.form["number_1"])
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
 
