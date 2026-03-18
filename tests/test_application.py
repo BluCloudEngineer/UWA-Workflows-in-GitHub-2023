@@ -58,6 +58,7 @@ def test_addition_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_default_route():
     """
     Make a GET request to "/" and return a status code of 200
@@ -67,6 +68,7 @@ def test_default_route():
 
     # Run assertions
     assert response.status_code == 200
+
 
 def test_get_calculate_redirect():
     """
