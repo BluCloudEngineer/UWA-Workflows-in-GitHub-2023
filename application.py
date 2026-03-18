@@ -3,7 +3,6 @@ Python Flask Calculator Web Application
 """
 
 # Imports
-import math
 from flask import Flask, render_template, request
 
 # Initialise the Flask application
@@ -45,56 +44,6 @@ def calculate():
     if operation == "addition":
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
-
-    if operation == "celsius_to_fahrenheit":
-        fahrenheit = float((number_1 * 9 / 5) + 32)
-        result = f"{fahrenheit} °F"
-
-    if operation == "celsius_to_kelvin":
-        result = float(number_1) + 273.15
-
-    if operation == "custom_log_base":
-        base = float(request.form["number_2"])
-        result = math.log(number_1, base)
-
-    if operation == "division":
-        number_2 = float(request.form["number_2"])
-        if number_2 == 0:
-            result = "undefined"
-        else:
-            result = number_1 / number_2
-
-    if operation == "factorial":
-        result = math.factorial(int(number_1))
-
-    if operation == "fahrenheit_to_celsius":
-        celsius = float((number_1 - 32) * 5 / 9)
-        result = f"{celsius} °C"
-
-    if operation == "log10":
-        result = math.log10(number_1)
-
-    if operation == "modulus":
-        divider = float(request.form["number_2"])
-        result = number_1 % divider
-
-    if operation == "multiplication":
-        number_2 = float(request.form["number_2"])
-        result = number_1 * number_2
-
-    if operation == "natural_log":
-        if number_1 > 0:  # Natural log is only defined for positive numbers
-            result = math.log(number_1)
-
-    if operation == "sqrt":
-        result = f"± {math.sqrt(number_1)}"
-
-    if operation == "subtraction":
-        number_2 = float(request.form["number_2"])
-        result = number_1 - number_2
-
-    if operation == "to_hexadecimal":
-        result = hex(int(number_1)).replace("0x", "").upper()
 
     return render_template("index.html", result=result)
 
