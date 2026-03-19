@@ -42,8 +42,12 @@ def calculate():
 
     # Perform mathematical operations
     if operation == "addition":
+        number_1 = float(number_1)
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
+
+    elif operation == "to_hexadecimal":
+        result = format(int(float(number_1)), "X")
 
     return render_template("index.html", result=result)
 
