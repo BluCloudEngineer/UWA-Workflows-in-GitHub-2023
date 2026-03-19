@@ -3,7 +3,9 @@ Python Flask Calculator Web Application
 """
 
 # Imports
+
 from flask import Flask, render_template, request
+import math
 
 # Initialise the Flask application
 # You must use the word "application" for this to work in AWS
@@ -48,6 +50,8 @@ def calculate():
     if operation == "celsius_to_fahrenheit":
         result = (number_1 * 9/5) + 32.0
     
+    if operation == "natural_log":
+        result = math.log(number_1)
     return render_template("index.html", result=result)
 
 
