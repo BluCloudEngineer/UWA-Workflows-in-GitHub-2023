@@ -81,3 +81,17 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
+
+def test_to_hexadecimal_integer():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the to_hexadecimal operation with an integer
+    """
+    response = application.test_client().post("/calculate", data={
+        "operation": "to_hexadecimal",
+        "number_1": 26
+    })
+
+    matching_string = "Result: 1A"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
