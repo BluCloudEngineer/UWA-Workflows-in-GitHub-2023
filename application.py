@@ -50,6 +50,10 @@ def calculate():
     # Perform mathematical operations
     if operation == "exponential":
         result = math.exp(number_1)
+       # Perform convert to fahrenheit operations       
+    if operation == "celsius_to_fahrenheit":
+        result = str((number_1 * 9/5) + 32) + "°F"
+
 
     if operation == "natural_log":
         result = math.log(number_1)
