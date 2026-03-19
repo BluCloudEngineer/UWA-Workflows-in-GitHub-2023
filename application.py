@@ -46,14 +46,12 @@ def calculate():
     if operation == "addition":
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
-       # Perform convert to fahrenheit operations       
-    if operation == "celsius_to_fahrenheit":
-        result = str((number_1 * 9/5) + 32) + "°F"
 
+    elif operation == "to_hexadecimal":
+        result = format(int(number_1), 'X')
 
-    if operation == "natural_log":
-        result = math.log(number_1)
     return render_template("index.html", result=result)
+        
 
 
 # Run the Flask application
