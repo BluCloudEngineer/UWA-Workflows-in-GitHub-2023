@@ -81,3 +81,27 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
+
+def test_celsius_to_kelvin():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the celsius to kelvin conversion
+
+    This unit test will run with randomly generated test
+    values
+    """
+    # Test variables
+    number_1 = random.randint(1, 1000)
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "celsius_to_kelvin",
+        "number_1": number_1
+    })
+
+    # Run assertions
+    kelvin_answer = number_1 + 273.15
+    matching_string = f"Result: {kelvin_answer}"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
