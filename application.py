@@ -45,6 +45,9 @@ def calculate():
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
 
+    if operation == "celsius_to_fahrenheit":
+        result = (number_1 * 9/5) + 32.0
+    
     return render_template("index.html", result=result)
 
 
