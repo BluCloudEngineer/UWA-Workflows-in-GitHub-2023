@@ -46,10 +46,9 @@ def calculate():
     if operation == "addition":
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
-       # Perform convert to fahrenheit operations       
+       # Perform convert to fahrenheit operations
     if operation == "celsius_to_fahrenheit":
-        result = str((number_1 * 9/5) + 32) + "°F"
-
+        result = str((number_1 * 9 / 5) + 32) + "°F"
 
     if operation == "natural_log":
         result = math.log(number_1)
