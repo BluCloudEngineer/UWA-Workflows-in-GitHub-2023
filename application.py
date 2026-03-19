@@ -47,7 +47,7 @@ def calculate():
        # Perform convert to fahrenheit operations
        
     if operation == "celsius_to_fahrenheit":
-        result = (number_1 * 9/5) + 32
+        result = str((number_1 * 9/5) + 32) + "°F"
 
 
     return render_template("index.html", result=result)
