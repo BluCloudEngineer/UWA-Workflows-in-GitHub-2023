@@ -3,6 +3,7 @@ Python Flask Calculator Web Application
 """
 
 # Imports
+
 from flask import Flask, render_template, request
 import math
 
@@ -50,6 +51,8 @@ def calculate():
     if operation == "exponential":
         result = math.exp(number_1)
 
+    if operation == "natural_log":
+        result = math.log(number_1)
     return render_template("index.html", result=result)
 
 
