@@ -4,6 +4,7 @@ Python Flask Calculator Web Application
 
 # Imports
 from flask import Flask, render_template, request
+import math
 
 # Initialise the Flask application
 # You must use the word "application" for this to work in AWS
@@ -44,6 +45,10 @@ def calculate():
     if operation == "addition":
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
+    
+    # Perform mathematical operations
+    if operation == "exponential":
+        result = math.exp(number_1)
 
     return render_template("index.html", result=result)
 
