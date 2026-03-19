@@ -3,7 +3,9 @@ Python Flask Calculator Web Application
 """
 
 # Imports
+
 from flask import Flask, render_template, request
+import math
 
 # Initialise the Flask application
 # You must use the word "application" for this to work in AWS
