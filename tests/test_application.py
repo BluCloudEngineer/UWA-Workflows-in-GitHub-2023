@@ -58,6 +58,21 @@ def test_addition_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+def test_celsius_to_farenheit():
+     # Test variables
+    number_1 = 30.0
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "celsius_to_fahrenheit",
+        "number_1": number_1
+    })
+
+    # Run assertions
+    matching_string = f"Result: 86.0"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
 
 def test_default_route():
     """
