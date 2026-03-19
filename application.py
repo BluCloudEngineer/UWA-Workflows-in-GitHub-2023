@@ -46,7 +46,7 @@ def calculate():
     if operation == "addition":
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
-    elif operation == "natural_log":
+    if operation == "natural_log":
         result = math.log(number_1)
     return render_template("index.html", result=result)
 
