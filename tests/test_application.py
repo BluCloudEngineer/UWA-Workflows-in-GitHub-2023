@@ -70,6 +70,42 @@ def test_default_route():
     assert response.status_code == 200
 
 
+def test_to_hexadecimal():
+    """
+    Make a POST request to the /calculate endpoint to perform
+    the to_hexadecimal operation
+
+    This unit test will run with manually provided test
+    values
+    """
+    # Test variables
+    number_1 = 255
+
+    # Make HTTP response
+    response = application.test_client().post("/calculate", data={
+        "operation": "to_hexadecimal",
+        "number_1": number_1
+    })
+
+    # Run assertions
+    matching_string = "Result: FF"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data
+
+def test_to_hexadecimal_2():
+    
+    number_1 = 100
+
+    response = application.test_client().post("/calculate", data={
+        "operation": "to_hexadecimal",
+        "number_1": number_1
+    })
+
+    matching_string = "Result: 64"
+    assert response.status_code == 200
+    assert matching_string.encode() in response.data    
+
+
 def test_get_calculate_redirect():
     """
     Make a GET request to "/calculate" and return a
