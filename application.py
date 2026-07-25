@@ -47,18 +47,6 @@ def calculate():
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
 
-    if operation == "celsius_to_fahrenheit":
-        result = str((number_1 * 9 / 5) + 32) + "°F"
-
-    if operation == "exponential":
-        result = math.exp(number_1)
-
-    if operation == "natural_log":
-        result = math.log(number_1)
-
-    if operation == "to_hexadecimal":
-        result = format(int(float(number_1)), "X")
-
     return render_template("index.html", result=result)
 
 

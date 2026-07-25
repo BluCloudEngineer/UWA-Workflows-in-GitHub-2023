@@ -59,54 +59,6 @@ def test_addition_2():
     assert matching_string.encode() in response.data
 
 
-def test_exponential_1():
-    """
-    Make a POST request to the /calculate endpoint to perform
-    the exponential operation
-
-    This unit test will run with manually provided test
-    values
-    """
-    # Test variables
-    number_1 = 3
-
-    # Make HTTP response
-    response = application.test_client().post("/calculate", data={
-        "operation": "exponential",
-        "number_1": number_1,
-
-    })
-
-    # Run assertions
-    matching_string = "Result: 20.085536923187668"
-    assert response.status_code == 200
-    assert matching_string.encode() in response.data
-
-
-def test_exponential_2():
-    """
-    Make a POST request to the /calculate endpoint to perform
-    the exponential operation
-
-    This unit test will run with randomly generated test
-    values
-    """
-    # Test variables
-    number_1 = random.randint(1, 100)
-
-    # Make HTTP response
-    response = application.test_client().post("/calculate", data={
-        "operation": "exponential",
-        "number_1": number_1,
-    })
-
-    # Run assertions
-    exponential_answer = math.exp(number_1)
-    matching_string = f"Result: {exponential_answer}"
-    assert response.status_code == 200
-    assert matching_string.encode() in response.data
-
-
 def test_default_route():
     """
     Make a GET request to "/" and return a status code of 200
@@ -129,18 +81,3 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
-
-
-def test_to_hexadecimal_integer():
-    """
-    Make a POST request to the /calculate endpoint to perform
-    the to_hexadecimal operation with an integer
-    """
-    response = application.test_client().post("/calculate", data={
-        "operation": "to_hexadecimal",
-        "number_1": 26
-    })
-
-    matching_string = "Result: 1A"
-    assert response.status_code == 200
-    assert matching_string.encode() in response.data
