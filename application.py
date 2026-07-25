@@ -44,6 +44,7 @@ def calculate():
 
     # Perform mathematical operations
     if operation == "addition":
+        number_1 = float(number_1)
         number_2 = float(request.form["number_2"])
         result = number_1 + number_2
     
@@ -54,6 +55,9 @@ def calculate():
     if operation == "celsius_to_fahrenheit":
         result = str((number_1 * 9/5) + 32) + "°F"
 
+
+    elif operation == "to_hexadecimal":
+        result = format(int(float(number_1)), "X")
 
     if operation == "natural_log":
         result = math.log(number_1)
