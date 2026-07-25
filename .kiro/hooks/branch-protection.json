@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Branch Protection - No Direct Main Changes",
+      "trigger": "PreToolUse",
+      "matcher": "fs_write|str_replace|fs_append|delete_file|smart_relocate",
+      "action": {
+        "type": "command",
+        "command": "#!/bin/bash\nCURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\n\nif [ -z \"$CURRENT_BRANCH\" ]; then\n  echo \"Not a git repository or git not available, skipping branch check.\"\n  exit 0\nfi\n\nif [ \"$CURRENT_BRANCH\" = \"main\" ] || [ \"$CURRENT_BRANCH\" = \"master\" ]; then\n  # Read the session context from stdin to derive a branch name\n  CONTEXT=$(cat)\n  PROMPT=$(echo \"$CONTEXT\" | python3 -c \"\nimport sys, json\ntry:\n    data = json.load(sys.stdin)\n    prompt = data.get('userMessage', '') or data.get('prompt', '')\n    print(prompt[:200])\nexcept:\n    print('')\n\" 2>/dev/null)\n\n  # Derive a branch name from the prompt\n  if [ -n \"$PROMPT\" ]; then\n    BRANCH_NAME=$(echo \"$PROMPT\" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '-' | sed 's/^-//;s/-$//' | cut -c1-50)\n  else\n    BRANCH_NAME=\"feature/kiro-changes-$(date +%Y%m%d-%H%M%S)\"\n  fi\n\n  BRANCH_NAME=\"feature/${BRANCH_NAME}\"\n\n  git checkout -b \"$BRANCH_NAME\" 2>/dev/null\n  if [ $? -eq 0 ]; then\n    echo \"Switched from '$CURRENT_BRANCH' to new branch '$BRANCH_NAME'. Proceeding with changes.\"\n    exit 0\n  else\n    echo \"Warning: Could not create branch '$BRANCH_NAME'. You are still on '$CURRENT_BRANCH'.\"\n    exit 0\n  fi\nfi\n\nexit 0\n",
+        "timeout": 15
+      }
+    }
+  ]
+}
