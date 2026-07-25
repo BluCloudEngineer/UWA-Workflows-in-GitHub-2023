@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Australian English Spelling Check",
+      "trigger": "PreToolUse",
+      "matcher": "fs_write|str_replace|fs_append",
+      "action": {
+        "type": "agent",
+        "prompt": "Before writing or modifying any file, check that all text content uses Australian English spelling. Australian English follows British spelling conventions for most words. Common differences from American English include:\n- \"-our\" not \"-or\": colour, behaviour, favour, honour, neighbour\n- \"-ise\" not \"-ize\": organise, recognise, realise, specialise, customise\n- \"-re\" not \"-er\": centre, fibre, metre, theatre\n- \"-ogue\" not \"-og\": catalogue, dialogue\n- \"-ence\" not \"-ense\": defence, licence (noun), offence\n- \"-ll\" in inflections: travelling, cancelled, labelled\n- \"programme\" not \"program\" (except for computer programs/code)\n\nIf the content being written contains American English spellings, correct them to Australian English before proceeding. This applies to comments, documentation, string literals, variable names written in plain English, and any user-facing text. It does NOT apply to established technical terms, library names, API identifiers, or third-party code that must remain unchanged."
+      }
+    }
+  ]
+}
