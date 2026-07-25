@@ -7,8 +7,13 @@
 
 version: 0.2
 
+env:
+  shell: "bash"
+
 phases:
   install:
+    runtime-versions:
+      python: 3.12.3
     commands:
       - python3 -m venv .venv
       - . .venv/bin/activate
