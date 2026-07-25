@@ -12,8 +12,6 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      python: 3.12.3
     commands:
       - python3 -m venv .venv
       - . .venv/bin/activate
