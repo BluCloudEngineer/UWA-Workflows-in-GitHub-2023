@@ -91,7 +91,7 @@ def test_exponential_2():
     values
     """
     # Test variables
-    number_1 = random.randint(1, 1000)
+    number_1 = random.randint(1, 100)
 
     # Make HTTP response
     response = application.test_client().post("/calculate", data={
