@@ -8,7 +8,7 @@
 ![GitHub License](https://img.shields.io/github/license/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
 ![GitHub Open Issues](https://img.shields.io/github/issues-raw/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
 ![GitHub Open Pull Requests](https://img.shields.io/github/issues-pr-raw/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
-![GitHub Python Version](https://img.shields.io/badge/python%20version-3.10.12-blue)
+![GitHub Python Version](https://img.shields.io/badge/python%20version-3.12.3-blue)
 ![GitHub Repository Size](https://img.shields.io/github/repo-size/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
 ![GitHub Stars](https://img.shields.io/github/stars/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
 ![GitHub Weekly Commit Activity](https://img.shields.io/github/commit-activity/w/BluCloudEngineer/UWA-Workflows-in-GitHub-2023)
