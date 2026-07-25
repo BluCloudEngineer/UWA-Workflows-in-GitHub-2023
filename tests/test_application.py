@@ -58,6 +58,7 @@ def test_addition_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_exponential_1():
     """
     Make a POST request to the /calculate endpoint to perform
@@ -105,6 +106,7 @@ def test_exponential_2():
     assert response.status_code == 200
     assert matching_string.encode() in response.data
 
+
 def test_default_route():
     """
     Make a GET request to "/" and return a status code of 200
@@ -127,6 +129,7 @@ def test_get_calculate_redirect():
     # Run assertions
     assert response.status_code == 200
     assert response.status_code != 405
+
 
 def test_to_hexadecimal_integer():
     """

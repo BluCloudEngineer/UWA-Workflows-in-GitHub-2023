@@ -48,7 +48,7 @@ def calculate():
         result = number_1 + number_2
 
     if operation == "celsius_to_fahrenheit":
-        result = str((number_1 * 9/5) + 32) + "°F"
+        result = str((number_1 * 9 / 5) + 32) + "°F"
 
     if operation == "exponential":
         result = math.exp(number_1)
