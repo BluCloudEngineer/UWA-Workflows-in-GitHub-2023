@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "PEP8 Compliance - Pre Write",
+      "trigger": "PreToolUse",
+      "matcher": "\\\\.py$",
+      "action": {
+        "type": "agent",
+        "prompt": "Before writing or modifying any Python file, ensure all code and docstrings strictly follow PEP8 standards. Apply the following rules:\n\n**Code Formatting:**\n- Maximum line length of 79 characters for code, 72 for docstrings/comments\n- Use 4 spaces per indentation level (no tabs)\n- Two blank lines before and after top-level function and class definitions\n- One blank line between methods inside a class\n- No trailing whitespace on any line\n- One newline at the end of the file\n- Spaces around operators and after commas, but not inside brackets\n- No spaces immediately inside parentheses, brackets, or braces\n\n**Imports:**\n- Imports on separate lines (one import per line)\n- Grouped in order: standard library, third-party, local — each group separated by a blank line\n- Absolute imports preferred over relative\n\n**Naming Conventions:**\n- `snake_case` for functions, methods, and variables\n- `PascalCase` for class names\n- `UPPER_SNAKE_CASE` for constants\n- Single leading underscore for internal use (`_private`)\n- Double leading underscore for name mangling (`__mangled`)\n\n**PyDoc / Docstrings:**\n- All public modules, classes, functions, and methods must have a docstring\n- Use triple double-quotes `\"\"\"` for all docstrings\n- One-line docstrings: opening and closing quotes on the same line\n- Multi-line docstrings: summary line, blank line, then elaboration; closing `\"\"\"` on its own line\n- Docstrings must describe what the function/method does, its arguments (Args:), return values (Returns:), and exceptions raised (Raises:) where applicable\n\nCorrect any violations before the file is written."
+      }
+    }
+  ]
+}

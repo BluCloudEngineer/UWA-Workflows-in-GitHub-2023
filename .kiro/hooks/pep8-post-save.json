@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "PEP8 Compliance - Post Save Lint",
+      "trigger": "PostFileSave",
+      "matcher": "\\\\.py$",
+      "action": {
+        "type": "command",
+        "command": "#!/bin/bash\n# Read the file path from stdin context\nCONTEXT=$(cat)\nFILE_PATH=$(echo \"$CONTEXT\" | python3 -c \"\nimport sys, json\ntry:\n    data = json.load(sys.stdin)\n    print(data.get('file', ''))\nexcept:\n    print('')\n\" 2>/dev/null)\n\nif [ -z \"$FILE_PATH\" ]; then\n  exit 0\nfi\n\n# Only check .py files\nif [[ \"$FILE_PATH\" != *.py ]]; then\n  exit 0\nfi\n\n# Try flake8 first, then pycodestyle, then pep8\nif command -v flake8 &>/dev/null; then\n  RESULT=$(flake8 --max-line-length=79 --max-doc-length=72 \"$FILE_PATH\" 2>&1)\n  TOOL=\"flake8\"\nelif command -v pycodestyle &>/dev/null; then\n  RESULT=$(pycodestyle --max-line-length=79 \"$FILE_PATH\" 2>&1)\n  TOOL=\"pycodestyle\"\nelif command -v pep8 &>/dev/null; then\n  RESULT=$(pep8 --max-line-length=79 \"$FILE_PATH\" 2>&1)\n  TOOL=\"pep8\"\nelse\n  echo \"No PEP8 linter found (flake8, pycodestyle, or pep8). Install one to enable post-save linting.\"\n  exit 0\nfi\n\nif [ -n \"$RESULT\" ]; then\n  echo \"PEP8 violations found by $TOOL in $FILE_PATH:\"\n  echo \"$RESULT\"\nelse\n  echo \"PEP8 check passed for $FILE_PATH\"\nfi\n\nexit 0\n",
+        "timeout": 30
+      }
+    }
+  ]
+}
