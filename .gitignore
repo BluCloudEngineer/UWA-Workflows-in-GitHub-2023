@@ -164,3 +164,4 @@ tests/*.xml
 
 # Kiro
 .config.kiro
+tasks.meta.json
