@@ -4,19 +4,26 @@ Thank you for your interest in this repository! Contributions are always welcome
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Submitting Changes](#submitting-changes)
-- [Standards and Conventions](#standards-and-conventions)
-- [Running Unit Tests](#running-unit-tests)
-- [CI/CD Pipeline Overview](#cicd-pipeline-overview)
-- [Reporting Bugs and Requesting Features](#reporting-bugs-and-requesting-features)
-- [Questions](#questions)
+- [How to Contribute](#how-to-contribute)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [Submitting Changes](#submitting-changes)
+    - [Desired Changes](#desired-changes)
+    - [Additional Features](#additional-features)
+    - [Pull Request Process](#pull-request-process)
+  - [Standards and Conventions](#standards-and-conventions)
+    - [Coding](#coding)
+    - [Git Branching](#git-branching)
+  - [Running Unit Tests](#running-unit-tests)
+  - [CI / CD Pipeline Overview](#ci--cd-pipeline-overview)
+  - [Reporting Bugs and Requesting Features](#reporting-bugs-and-requesting-features)
+  - [Questions](#questions)
 
 ---
 
 ## Getting Started
 
-Before making any changes, set up your local development environment by following the steps in the [README.md](README.md).
+Before making any changes, set up your local development environment by following the steps in the [README.md](README.md) file.
 
 In summary:
 
@@ -48,9 +55,9 @@ If there are no open issues to address, or you want to add something new, feel f
 
 ### Pull Request Process
 
-1. Create a new branch off `main` following the [branch naming conventions](#git-branching) below.
+1. Create a new branch off the `main` branch following the [branch naming conventions](#git-branching) below.
 2. Make your changes and ensure all unit tests pass locally (see [Running Unit Tests](#running-unit-tests)).
-3. Open a pull request against `main`. The [pull request template](.github/pull_request_template.md) will load automatically — complete every item in the checklist.
+3. Open a pull request against the `main` branch. The [pull request template](.github/pull_request_template.md) will load automatically — complete every item in the checklist.
 4. Link any related GitHub issues in your pull request (e.g. `Closes #10`).
 5. Your pull request will be reviewed before it is merged.
 
@@ -83,14 +90,14 @@ The pull request checklist covers the following key points:
 
 Use the following prefixes to name your branch:
 
-| Prefix | When to use |
-|---|---|
-| `feature/` | Adding new functionality |
-| `bugfix/` | Fixing a reported bug |
-| `hotfix/` | Emergency fix for a production issue |
-| `refactor/` | Code improvements with no new features |
-| `documentation/` | Documentation-only changes |
-| `security/` | Addressing a security vulnerability |
+| Prefix           | When to use                                           |
+| ---------------- | ----------------------------------------------------- |
+| `feature/`       | Adding new functionality                              |
+| `bugfix/`        | Fixing a reported bug                                 |
+| `hotfix/`        | Emergency fix for a production issue                  |
+| `refactor/`      | Code improvements with no new features                |
+| `documentation/` | Documentation only changes                            |
+| `security/`      | Addressing a security vulnerability / vulnerabilities |
 
 Examples:
 
@@ -112,7 +119,7 @@ Run all tests locally with:
 pytest
 ```
 
-To generate a JUnit XML report (as used by AWS CodeBuild):
+To generate a JUnit XML report (as used by [AWS CodeBuild](https://aws.amazon.com/codebuild/)):
 
 ```bash
 pytest --junitxml=tests/report.xml
@@ -127,15 +134,15 @@ All tests must pass before a pull request can be merged.
 
 ---
 
-## CI/CD Pipeline Overview
+## CI / CD Pipeline Overview
 
-This project uses GitHub Actions for CI/CD. Understanding the automated workflows helps you know what to expect after you push code or open a pull request.
+This project uses GitHub Actions for CI / CD. Understanding the automated workflows helps you know what to expect after you push code or open a pull request.
 
-| Workflow | Trigger | What it does |
-|---|---|---|
-| `Run PyTest Unit Tests` | Pull request to `main` | Runs all pytest unit tests |
-| `Run Python PEP8 Linting` | Push to `main` | Runs `autopep8` and opens an automated PR if formatting fixes are needed; also runs unit tests |
-| `Run pytest Unit Tests, build Docker Container and push to Docker Hub` | Push to `main` | Runs unit tests, then builds and pushes the Docker image to [Docker Hub](https://hub.docker.com/r/blucloudengineer/uwaworkflows2023) |
+| Workflow                                                               | Trigger                | What it does                                                                                                                         |
+| ---------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `Run PyTest Unit Tests`                                                | Pull request to `main` | Runs all pytest unit tests                                                                                                           |
+| `Run Python PEP8 Linting`                                              | Push to `main`         | Runs `autopep8` and opens an automated PR if formatting fixes are needed; also runs unit tests                                       |
+| `Run pytest Unit Tests, build Docker Container and push to Docker Hub` | Push to `main`         | Runs unit tests, then builds and pushes the Docker image to [Docker Hub](https://hub.docker.com/r/blucloudengineer/uwaworkflows2023) |
 
 ---
 
@@ -143,7 +150,7 @@ This project uses GitHub Actions for CI/CD. Understanding the automated workflow
 
 Use the GitHub issue templates to report bugs or request features. Templates load automatically when you create a new issue.
 
-- **Bug report** — Use this template to report unexpected behaviour. Provide your OS, browser, steps to reproduce, and what you expected vs what actually happened.
+- **Bug report** — Use this template to report unexpected behaviour. Provide your OS, browser, steps to reproduce and what you expected vs what actually happened.
 - **Feature request** — Use this template to suggest new ideas. Describe what you want to add and why it would benefit the project.
 
 Before submitting, check existing [Issues](https://github.com/BluCloudEngineer/UWA-Workflows-in-GitHub-2023/issues) to avoid duplicates. If your bug or feature has already been reported, add a comment to the existing issue rather than opening a new one.
