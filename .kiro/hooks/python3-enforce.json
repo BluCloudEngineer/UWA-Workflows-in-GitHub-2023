@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Enforce python3 on Linux",
+      "trigger": "PreToolUse",
+      "matcher": "execute_bash",
+      "action": {
+        "type": "agent",
+        "prompt": "Before executing any bash command, check if it contains \"python \" (python followed by a space) as a command invocation. If it does, rewrite the command to use \"python3\" instead of \"python\". For example, \"python application.py\" should become \"python3 application.py\", and \"python -m pytest\" should become \"python3 -m pytest\". Do not modify occurrences of \"python\" that are already \"python3\", or where \"python\" appears in a path or as part of another word."
+      }
+    }
+  ]
+}
