@@ -60,7 +60,8 @@ def calculate():
         result = format(int(float(number_1)), "X")
 
     if operation == "fahrenheit_to_celsius":
-        result = (number_1 - 32) / 1.8
+        x = (number_1 - 32) / 1.8
+        result = f"{x} °C"
 
     return render_template("index.html", result=result)
 
