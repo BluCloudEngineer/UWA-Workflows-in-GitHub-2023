@@ -33,22 +33,6 @@ def test_addition_1():
     assert matching_string.encode() in response.data
 
 
-def test_f_to_c():
-    # Test variables
-    number_1 = 32
-
-    # Make HTTP response
-    response = application.test_client().post("/calculate", data={
-        "operation": "fahrenheit_to_celsius",
-        "number_1": number_1
-    })
-    
-    # Run assertions
-    matching_string = "Result: 0"
-    assert response.status_code == 200
-    assert matching_string.encode() in response.data
-
-
 def test_addition_2():
     """
     Make a POST request to the /calculate endpoint to perform

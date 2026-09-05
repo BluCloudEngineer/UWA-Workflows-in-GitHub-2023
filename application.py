@@ -59,10 +59,6 @@ def calculate():
     if operation == "to_hexadecimal":
         result = format(int(float(number_1)), "X")
 
-    if operation == "fahrenheit_to_celsius":
-        x = (number_1 - 32) / 1.8
-        result = f"{x} °C"
-
     return render_template("index.html", result=result)
 
 
